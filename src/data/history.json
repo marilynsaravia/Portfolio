@@ -1,0 +1,22 @@
+[
+  {
+    "role": "Web developer",
+    "organisation": "Sucre Obras y Reformas",
+    "startDate": "Jul, 2014",
+    "endDate": "Jul, 2024",
+    "experiences": ["Diseño y desarrollo web completo", "HTML5, CSS3, Tailwind CSS, Javascript, PHP"],
+    "imageSrc": "history/sucre.png",
+    "link": "https://www.sucreobrasyreformas.com/"  
+
+  },
+  {
+    "role": "Pasantía",
+    "organisation": "Adentia (Advanced Enterprise Internet Act)",
+    "startDate": "Abr, 2024",
+    "endDate": "Jun, 2024",
+    "experiences": ["Adquirí nuevas habilidades y nuevos conocimientos", "C#, .NET, Angular, JQuery, SQL Server"],
+    "imageSrc": "history/adentia.png",
+    "link": "https://adentia.es/"  
+
+  }
+]
