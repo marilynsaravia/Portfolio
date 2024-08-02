@@ -1,18 +1,10 @@
 [
   {
-    "title": "Proyecto 1",
-    "imageSrc": "projects/project.png",
-    "description": "Próximamente.",
-    "skills": ["HTML5","Tailwind CSS","Javascript", "PHP", "SQL"],
-    "demo": "https://www.example.com",
-    "source": "https://www.github.com"
-  },
-  {
-    "title": "Project 2",
-    "imageSrc": "projects/project.png",
-    "description": "Próximamente.",
-    "skills": ["HTML5","Tailwind CSS","Javascript", "PHP", "SQL"],
-    "demo": "https://www.example.com",
-    "source": "https://www.github.com"
+    "title": "Weather App",
+    "imageSrc": "projects/project1.png",
+    "description": "Una aplicación de clima que muestra las condiciones actuales y el pronóstico para cualquier ciudad.",
+    "skills": ["HTML5","Tailwind CSS","Javascript", "React", "API"],
+    "demo": "https://weather-app-dvem.onrender.com/",
+    "source": "https://github.com/marilynsaravia/Weather-App"
   }
 ]
