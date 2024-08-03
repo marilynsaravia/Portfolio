@@ -1,0 +1,10 @@
+[
+  {
+    "title": "Weather App",
+    "imageSrc": "projects/project1.png",
+    "description": "Una aplicación de clima que muestra las condiciones actuales y el pronóstico para cualquier ciudad.",
+    "skills": ["HTML5","Tailwind CSS","Javascript", "React", "API"],
+    "demo": "https://weather-app-dvem.onrender.com/",
+    "source": "https://github.com/marilynsaravia/Weather-App"
+  }
+]
