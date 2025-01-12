@@ -1,5 +1,14 @@
 [
   {
+    "role": "Frontend developer",
+    "organisation": "Adopta Junior",
+    "startDate": "Oct, 2024",
+    "endDate": "Dic, 2024",
+    "experiences": ["Desarrollo frontend", "NextJs, Typescript, Tailwind CSS, Figma"],
+    "imageSrc": "history/adoptaunjunior.png",
+    "link": "https://cloudsolute.net/"
+  },
+  {
     "role": "Web developer",
     "organisation": "Sucre Obras y Reformas",
     "startDate": "Jul, 2014",

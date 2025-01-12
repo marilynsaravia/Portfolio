@@ -20,10 +20,17 @@
     "title": "Javascript",
     "imageSrc": "skills/javascript.png"
   },
-
+  {
+    "title": "Typescript",
+    "imageSrc": "skills/typescript.png"
+  },
   {
     "title": "React",
     "imageSrc": "skills/react.png"
+  },
+  {
+    "title": "Next Js",
+    "imageSrc": "skills/nextjs.png"
   },
   {
     "title": "PHP",
@@ -32,6 +39,10 @@
   {
     "title": "MySql",
     "imageSrc": "skills/mysql.png"
+  },
+  {
+    "title": "Figma",
+    "imageSrc": "skills/figma.png"
   }
 
   
