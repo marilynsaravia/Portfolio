@@ -1,3 +1,6 @@
+
+...Rediseño de portafolio...
+
 # Portafolio de Desarrollador Web
 
 ## Descripción
