@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Weather App",
+    "imageSrc": "project1.png",
+    "skills": ["HTML5","Tailwind CSS","Javascript", "React", "API"],
+    "demo": "https://weather-app-dvem.onrender.com/",
+    "source": "https://github.com/marilynsaravia/Weather-App"
+  },
+  {
+    "title" : "Bolivian Recipes App",
+    "imageSrc": "project2.png",
+    "skills" : ["HTML5","TailwindCSS","Javascript","React"],
+    "demo": "https://marilynsaravia.github.io/Bolivian-Recipes-App/",
+    "source": "https://github.com/marilynsaravia/Bolivian-Recipes-App"
+  },
+  {
+    "title" : "Notepad App",
+    "imageSrc": "project3.png",
+    "skills" : ["HTML5","TailwindCSS","Javascript","React"],
+    "demo": "https://marilynsaravia.github.io/Notepad-App/",
+    "source": "https://github.com/marilynsaravia/Notepad-App"
+  },
+  {
+    "title" : "Evolution",
+    "imageSrc": "project4.png",
+    "skills" : ["HTML5","TailwindCSS","Javascript","React"],
+    "demo": "https://marilynsaravia.github.io/Notepad-App/",
+    "source": "https://github.com/marilynsaravia/Notepad-App"
+  }
+]
