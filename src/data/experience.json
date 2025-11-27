@@ -1,0 +1,52 @@
+[
+  {
+    "role": "Junior Frontend developer",
+    "organisation": "AdoptaUnJunior",
+    "country": "Spain",
+    "employmentType": "Contract",
+    "startDate": "Oct, 2024",
+    "endDate": "Dic, 2024",
+    "experiences":[
+                    "Designed and implemented responsive web interfaces using Next.js, focusing on efficiency and adaptability across different devices.",
+                    "Applied TypeScript to ensure robust, strongly typed development, improving code quality and maintainability.",
+                    "Integrated Tailwind CSS to create aesthetic and functional interfaces, optimizing development time through its utility-based design system.",
+                    "Collaborated across departments, particularly with design teams, to ensure a cohesive and high-quality user experience.",
+                    "Actively contributed to the continuous improvement of the user experience, applying best practices in performance and web usability."
+                  ],
+    "imageSrc": "spain.png",
+    "link": "https://cloudsolute.net/"
+  },
+  {
+    "role": "Web developer",
+    "organisation": "Sucre Obras y Reformas",
+    "country": "Spain",
+    "employmentType": "Freelance",
+    "startDate": "Jul, 2014",
+    "endDate": "Jul, 2024",
+    "experiences":[
+                    "Gained experience in web development, strengthening technical skills and the ability to manage projects independently.", 
+                    "Designed and developed complete websites using PHP, HTML, CSS, and JavaScript, ensuring both functionality and visual appeal.",
+                    "Responsible for the full planning, design, and execution of web projects, from initial concept to successful launch.",
+                    "Implemented optimization strategies to improve performance and ensured compatibility across a wide range of devices."
+                  ],
+    "imageSrc": "spain.png",
+    "link": "https://www.sucreobrasyreformas.com/"  
+
+  },
+  {
+    "role": "Backend Developer Intern",
+    "organisation": "Adentia (Advanced Enterprise Internet Act)",
+    "country": "Spain",
+    "employmentType": "Internship",
+    "startDate": "Abr, 2024",
+    "endDate": "Jun, 2024",
+    "experiences":[
+                    "Execution of advanced SQL queries and data manipulation exercises using a dedicated test database.", 
+                    "Acquired skills in C#, jQuery, and Angular through training materials provided by the company, expanding knowledge of backend development technologies.",
+                    "Developed and strengthened backend programming logic skills and gained familiarity with modern web development tools, building a solid foundation to face technical challenges in professional environments."
+                  ],
+    "imageSrc": "spain.png",
+    "link": "https://adentia.es/"  
+
+  }
+]

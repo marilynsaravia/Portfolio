@@ -1,19 +1,16 @@
-# Portafolio de Desarrollador Web
+# React + Vite
 
-## Descripción
-¡Bienvenido a mi portafolio personal! Aquí presento mis proyectos de desarrollo web y mis habilidades. Espero que disfrutes explorando mi trabajo tanto como yo disfruté creándolo.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Contacto
-- LinkedIn: [Marilyn Saravia](https://www.linkedin.com/in/marilynsaravia/)
+Currently, two official plugins are available:
 
-## Agradecimientos
-Quiero agradecer a todas las personas que me han apoyado y han confiado en mí a lo largo de estos años de estudio. Es un honor y un orgullo poder mostrarles mis experiencias profesionales y habilidades, las cuales he adquirido gracias a mis docentes en España y Bolivia, mis compañeros y amigos de la universidad e instituto, y a todos mis conocidos. ¡Muchas gracias por hacer este camino más ameno y por ayudarme a alcanzar mis metas! 🩷
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React + Vite
+## React Compiler
 
-Este proyecto utiliza React y Vite para proporcionar un entorno de desarrollo rápido y eficiente con HMR y algunas reglas de ESLint.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Actualmente, hay dos plugins oficiales disponibles:
+## Expanding the ESLint configuration
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md): Utiliza [Babel](https://babeljs.io/) para Fast Refresh.
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc): Utiliza [SWC](https://swc.rs/) para Fast Refresh.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

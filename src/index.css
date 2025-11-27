@@ -1,10 +1,8 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: "Outfit", Arial, Helvetica, sans-serif;
-}
+@import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
-}
+
+body {font-family: 'Inter', sans-serif; }
+
+/* Hide the scrollbar while keeping horizontal overflow enabled */
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.hide-scrollbar::-webkit-scrollbar { display: none; }
