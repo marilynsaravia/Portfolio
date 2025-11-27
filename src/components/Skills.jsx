@@ -83,7 +83,7 @@ export default function Skills() {
     }
   };
 
-  // Allow mouse wheeel movemento (without preventDefault)
+  // Allow mouse wheel movement (without preventDefault)
   const handleWheel = (e) => {
     const el = scrollRef.current;
     if (!el) return;
