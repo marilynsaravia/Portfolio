@@ -1,76 +1,52 @@
+import { useState } from "react";
+
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+  const email = "goitiasaraviamarilyn@gmail.com";
+
+  const handleCopyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("Error copying email:", err);
+    }
+  };
+
+  const iconClasses = 
+    "transition-all duration-700 text-gray-500   " +
+    "hover:text-transparent hover:bg-clip-text " +
+    "hover:bg-gradient-to-b from-purple-400 to-blue-500";
+
   return (
     <section
       id="contact"
-      className="w-full pt-40 pb-4 px-8 md:px-16  text-gray-800 flex flex-col items-center"
+      className="w-full  pt-40 pb-4 px-8 md:px-16 text-gray-800 flex flex-col items-center"
     >
       {/* 🌿 Title */}
-      <h2 className="text-center text-2xl md:text-3xl font-semibold tracking-wide mb-6">
-        Get In <span className="text-gray-900">Touch</span>
+      <h2 className="text-center text-2xl md:text-3xl font-semibold tracking-wide mb-8">
+        Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-teal-500 to-blue-500">Touch</span>
       </h2>
 
       <p className="text-gray-600 text-center max-w-2xl mb-12 text-base md:text-lg leading-relaxed">
-        I’d love to hear from you — whether you’re interested in collaborating,
-        have a question, or just want to say hello. 👋
+        I’m available for new collaborations, freelance projects, or opportunities.
+        <br />
+        Feel free to email me or connect through my social networks. 🚀
+       
       </p>
 
-      {/* 📬 Form */}
-      <form className="w-full max-w-lg bg-gray-50 p-8 rounded-2xl shadow-[0_6px_24px_rgba(0,0,0,0.05)] space-y-6">
-        <div>
-          <label htmlFor="name" className="block text-gray-700 mb-2 text-sm font-medium">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            placeholder="Your name"
-            className="w-full border border-gray-300 text-gray-800 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-800 transition"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="email" className="block text-gray-700 mb-2 text-sm font-medium">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            placeholder="you@example.com"
-            className="w-full border border-gray-300 text-gray-800 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-800 transition"
-          />
-        </div>
-
-        <div>
-          <label htmlFor="message" className="block text-gray-700 mb-2 text-sm font-medium">
-            Message
-          </label>
-          <textarea
-            id="message"
-            rows="5"
-            placeholder="Write your message..."
-            className="w-full border border-gray-300 text-gray-800 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-gray-800 resize-none transition"
-          ></textarea>
-        </div>
-
-        <button
-          type="submit"
-          className="w-full py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
-        >
-          Send Message
-        </button>
-      </form>
-
-      {/* 🌐 RRSS */}
-      <div className="flex gap-6 mt-10 text-2xl text-gray-500">
+      {/* 🌐 RRSS + Email */}
+      <div className="flex gap-6 mt-6 text-gray-500 relative text-3xl md:text-4xl">
         
         {/* GitHub */}
         <a
           href="https://github.com/marilynsaravia"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-gray-900 transition-colors"
+          className={iconClasses}
         >
-          <i className="ri-github-fill"></i>
+          <i className="ri-github-fill" />
         </a>
 
         {/* LinkedIn */}
@@ -78,9 +54,9 @@ const Contact = () => {
           href="https://linkedin.com/in/marilynsaravia"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-gray-900 transition-colors"
+          className={iconClasses}
         >
-          <i className="ri-linkedin-box-fill"></i>
+          <i className="ri-linkedin-box-fill" />
         </a>
 
         {/* CodePen */}
@@ -88,10 +64,25 @@ const Contact = () => {
           href="https://codepen.io/marilynsaravia"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-gray-900 transition-colors"
+          className={iconClasses}
         >
-          <i className="ri-codepen-fill"></i>
+          <i className="ri-codepen-fill" />
         </a>
+
+        {/* Email (copy) */}
+        <button
+          onClick={handleCopyEmail}
+          className={`${iconClasses} relative cursor-pointer`} 
+        >
+          <i className="ri-at-line" />
+
+          {/* Tooltip */}
+          {copied && (
+            <span className="absolute -top-6 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs py-1 px-2 rounded-md shadow-lg animate-fade">
+              Copied!
+            </span>
+          )}
+        </button>
 
       </div>
 

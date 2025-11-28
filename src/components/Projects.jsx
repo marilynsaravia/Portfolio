@@ -98,7 +98,7 @@ export default function Projects() {
     <section
       id="projects"
       ref={sectionRef}
-      className="w-full py-12 overflow-hidden mb-16"
+      className="w-full pt-12 overflow-hidden"
     >
       <h2 className="text-center text-2xl md:text-3xl font-semibold text-gray-800 mb-16 tracking-wide">
         Projects
