@@ -1,6 +1,15 @@
 import { getImageAbout } from "../utils";
 
 export default function About() {
+
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <section id="about" className="w-full pt-24 pb-24 bg-white text-gray-800">
       {/* 🌿 Title */}
@@ -16,7 +25,7 @@ export default function About() {
             <img
               src={getImageAbout("marilyn.png")}
               alt="Marilyn Saravia"
-              className="relative z-[1] w-64 h-64 md:w-72 md:h-72 object-cover rounded-2xl ring-1 ring-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
+              className="relative z-[1] w-64 h-64 md:w-72 md:h-72 object-cover rounded-full ring-1 ring-gray-200 shadow-[0_10px_30px_rgba(0,0,0,0.08)]"
               loading="lazy"
             />
           </div>
@@ -25,16 +34,18 @@ export default function About() {
         {/* 📝 Text */}
         <div className="max-w-2xl">
           <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-            Hi! I’m <span className="font-semibold text-gray-900">Marilyn Saravia</span>, a web
-            developer focused on creating clean, responsive, and intuitive web applications.
-            I love turning ideas into simple, elegant solutions and collaborating to craft meaningful
-            digital experiences.
-          </p>
+            <p className="text-gray-700 text-base md:text-lg leading-relaxed">
+            Hi! I’m <span className="font-semibold text-gray-900">Marilyn Saravia</span>, 
+            a Junior Frontend Developer focused on creating clean, responsive, and intuitive 
+            web applications. I love turning ideas into simple, elegant solutions and collaborating 
+            to craft meaningful digital experiences.
+            </p>
 
-          <p className="text-gray-600 text-base leading-relaxed mt-4">
+            <p className="text-gray-600 text-base leading-relaxed mt-4">
             I hold a degree in Web Application Development and have hands-on experience with modern
             technologies. My goal is to build products that are visually clear, accessible, and
             functional — blending design with usability.
+            </p>
           </p>
 
           {/* 🧩 Visual stack consistent with the "Projects" section */}
@@ -54,6 +65,7 @@ export default function About() {
           <div className="mt-7 flex flex-wrap gap-3">
             <a
               href="#projects"
+              onClick={(e) => handleNavClick(e, "projects")}
               className="px-4 py-2 text-sm rounded-md border border-gray-300 text-gray-700 hover:bg-gray-800 hover:text-white transition-colors"
             >
               View Projects

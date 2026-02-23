@@ -1,6 +1,15 @@
 import emoji from "../assets/Hero/emoji.png";
 
 export default function Hero() {
+  
+  const handleNavClick = (e, id) => {
+    e.preventDefault();
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <section
       id="home"
@@ -67,7 +76,8 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row gap-4">
           <a
             href="#projects"
-            className="px-6 py-3 rounded-md border bg-white border-gray-300 text-gray-700 hover:bg-gray-900 hover:text-white transition-colors text-sm md:text-base"
+            onClick={(e) => handleNavClick(e, "projects")}
+            className="px-6 py-3 rounded-md border bg-white border-gray-300 text-gray-700 hover:bg-gray-900 hover:text-white transition-colors text-sm md:text-base cursor-pointer"
           >
             View Projects
           </a>

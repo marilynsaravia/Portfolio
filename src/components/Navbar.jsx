@@ -8,8 +8,9 @@ export default function Navbar() {
   const links = [
     { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
+    { id: "about", label: "About" },
     { id: "contact", label: "Contact" },
-    { id: "blog", label: "Blog" },
+    
   ];
 
   // (optional) scroll-spy
@@ -55,8 +56,14 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a href="#home" className="select-none cursor-pointer">
-            <img src={Logo} alt="Marilyn Logo" className="w-9 h-9" />
+          <a
+            href="#home"
+            onClick={(e) => { e.preventDefault(); handleNavClick("home"); }}
+            className={`select-none cursor-pointer transition-transform hover:scale-110 active:scale-95 ${
+              active === "home" ? "opacity-100" : "opacity-80 hover:opacity-100"
+            }`}
+          >
+            <img src={Logo} alt="Logo" className="w-9 h-9" />
           </a>
           {links.slice(2).map((l) => (
             <a
