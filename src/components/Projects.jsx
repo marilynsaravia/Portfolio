@@ -1,105 +1,67 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import projects from "../data/projects.json";
 import { getImageProjects } from "../utils";
 
 export default function Projects() {
-  const sectionRef = useRef(null);
   const trackRef = useRef(null);
+  
+  const [isDragging, setIsDragging] = useState(false);
+  const dragInfo = useRef({
+    startX: 0,
+    scrollLeft: 0,
+  });
 
-  const [isActive, setIsActive] = useState(false);
-  const speed = 0.15;
-
-  // --- RAF controlled by isActive (RAF = requestAnimationFrame ) --- 
-  useEffect(() => {
-    const el = trackRef.current;
-    if (!el) return;
-
-    let rafId;
-
-    const tick = () => {
-      if (isActive) {
-        el.scrollLeft += speed;
-        const maxScroll = el.scrollWidth - el.clientWidth;
-        if (el.scrollLeft >= maxScroll) {
-          el.scrollLeft = maxScroll;
-          setIsActive(false);
-        }
-      }
-      rafId = requestAnimationFrame(tick);
-    };
-
-    rafId = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(rafId);
-  }, [isActive, speed]);
-
-  // --- hover on the entire section ---
-  useEffect(() => {
-    const sec = sectionRef.current;
-    if (!sec) return;
-    const enter = () => setIsActive(true);
-    const leave = () => setIsActive(false);
-    sec.addEventListener("mouseenter", enter);
-    sec.addEventListener("mouseleave", leave);
-    return () => {
-      sec.removeEventListener("mouseenter", enter);
-      sec.removeEventListener("mouseleave", leave);
-    };
-  }, []);
-
-  // --- pause when switching tabs ---
-  useEffect(() => {
-    const handler = () => {
-      if (document.hidden) setIsActive(false);
-    };
-    document.addEventListener("visibilitychange", handler);
-    return () => document.removeEventListener("visibilitychange", handler);
-  }, []);
-
-  // --- drag (mouse/touch) on the track ---
-  const drag = useRef({ active: false, startX: 0, startLeft: 0, id: null });
-
+  // --- Manual Drag Logic (Mouse & Touch) ---
   const onPointerDown = (e) => {
+    // If the gesture starts on a link or button, do NOT drag
+    if (e.target.closest("a, button")) return;
+
     const el = trackRef.current;
     if (!el) return;
 
-    // ⛔ If the click starts on a link or button, do NOT activat drag
-    const target = e.target;
-    if (target.closest("a, button")) return;
+    setIsDragging(true);
 
-    drag.current = {
-      active: true,
-      startX: e.clientX ?? (e.touches?.[0]?.clientX || 0),
-      startLeft: el.scrollLeft,
-      id: e.pointerId ?? null,
+    // Save initial click/touch position and current scroll
+    dragInfo.current = {
+      startX: e.pageX - el.offsetLeft,
+      scrollLeft: el.scrollLeft,
     };
-    el.setPointerCapture?.(e.pointerId);
-    setIsActive(false);
+
+    // Disable smooth scroll during drag for instant response
+    el.style.scrollBehavior = "auto";
+    // Capture pointer to keep tracking even if the mouse leaves the area
+    el.setPointerCapture(e.pointerId);
   };
 
   const onPointerMove = (e) => {
+    if (!isDragging) return;
+    
+    e.preventDefault(); // Prevent accidental page scrolling/selection
     const el = trackRef.current;
-    if (!el || !drag.current.active) return;
-    const x = e.clientX ?? (e.touches?.[0]?.clientX || 0);
-    const dx = x - drag.current.startX;
-    el.scrollLeft = drag.current.startLeft - dx;
-
-    const half = el.scrollWidth - el.clientWidth;
-    if (el.scrollLeft < 0) el.scrollLeft = half + el.scrollLeft;
-    if (el.scrollLeft >= half) el.scrollLeft = 0 + (el.scrollLeft + half);
+    const x = e.pageX - el.offsetLeft;
+    
+    // Calculate movement distance (multiplied by 1.5 for better sensitivity)
+    const walk = (x - dragInfo.current.startX) * 1.5; 
+    el.scrollLeft = dragInfo.current.scrollLeft - walk;
   };
 
-  const endDrag = () => {
-    const el = trackRef.current;
-    if (!el) return;
-    drag.current.active = false;
+  const stopDragging = (e) => {
+    setIsDragging(false);
+    if (trackRef.current) {
+      // Re-enable smooth scroll for keyboard/wheel navigation
+      trackRef.current.style.scrollBehavior = "smooth";
+      trackRef.current.releasePointerCapture(e.pointerId);
+    }
   };
 
   return (
-    <section
-      id="projects"
-      ref={sectionRef}
-      className="w-full pt-12 overflow-hidden"
-    >
+    <section id="projects" className="w-full pt-12 overflow-hidden">
+      {/* CSS to hide the scrollbar while keeping functionality */}
+      <style>{`
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
+
       <h2 className="text-center text-2xl md:text-3xl font-semibold text-gray-800 mb-16 tracking-wide">
         Projects
       </h2>
@@ -107,74 +69,54 @@ export default function Projects() {
       <div className="w-full">
         <div
           ref={trackRef}
-          className="flex flex-nowrap gap-4 md:gap-6 px-4 md:px-6 overflow-hidden select-none"
           onPointerDown={onPointerDown}
           onPointerMove={onPointerMove}
-          onPointerUp={endDrag}
-          onPointerCancel={endDrag}
-          onMouseLeave={endDrag}
-          onTouchStart={onPointerDown}
-          onTouchMove={onPointerMove}
-          onTouchEnd={endDrag}
+          onPointerUp={stopDragging}
+          onPointerLeave={stopDragging}
+          onPointerCancel={stopDragging}
+          className={`
+            flex flex-nowrap gap-4 md:gap-6 px-8 md:px-16
+            overflow-x-auto overflow-y-hidden
+            no-scrollbar
+            ${isDragging ? "cursor-grabbing" : "cursor-grab"}
+            select-none touch-pan-y
+          `}
+          style={{ scrollBehavior: 'smooth' }}
         >
           {projects.map((p, i) => (
             <article
               key={`${p.title}-${i}`}
-              className="
-                inline-block
-                w-[350px] sm:w-[520px] md:w-[520px] lg:w-[522px]
-                flex-shrink-0
-                overflow-hidden
-                bg-white text-[#111827]
-                rounded-xl
-              "
+              className="inline-block w-[320px] sm:w-[500px] flex-shrink-0"
             >
               <div className="relative w-full h-[293px] bg-[#111111] flex items-center justify-center overflow-hidden rounded-xl">
                 <img
                   src={getImageProjects(p.imageSrc)}
-                  draggable={false}
-                  onDragStart={(e) => e.preventDefault()}
                   alt={p.title}
-                  className="object-contain"
+                  draggable={false} // Prevent browser default drag on images
+                  className="object-contain pointer-events-none"
                 />
               </div>
 
-              <div className="py-3 flex flex-col gap-2">
+              <div className="py-4 flex flex-col gap-2">
                 <div className="flex items-center justify-between">
                   <p className="text-[15px] md:text-base font-semibold text-gray-700">
                     {p.title}
                   </p>
                   <div className="flex gap-2">
-                    <a
-                      href={p.source}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-2.5 py-1 text-[16px] border border-gray-400 text-gray-700 rounded-md hover:bg-black hover:text-white transition-colors"
-                    >
-                      GitHub
-                    </a>
-                    <a
-                      href={p.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-2.5 py-1 text-[16px] bg-black text-white rounded-md hover:bg-gray-900 transition-colors"
-                    >
-                      Demo
-                    </a>
+                    <a href={p.source} target="_blank" rel="noopener noreferrer" className="px-2.5 py-1 text-sm border border-gray-400 rounded-md hover:bg-black hover:text-white transition-colors">GitHub</a>
+                    <a href={p.demo} target="_blank" rel="noopener noreferrer" className="px-2.5 py-1 text-sm bg-black text-white rounded-md">Demo</a>
                   </div>
                 </div>
-
-                <div className="text-[14px] flex flex-wrap gap-1 pt-2 text-gray-600">
-                  {p.skills?.map((tech, k) => (
-                    <span key={k}>
-                      {tech}
-                      {k < p.skills.length - 1 && ", "}
-                    </span>
-                  ))}
+                {/* Technical skills used in the project */}
+                <div className="text-[14px] text-gray-600">
+                  {p.skills?.join(", ")}
                 </div>
               </div>
             </article>
           ))}
+          
+          {/* Final spacer for correct padding at the end of the track */}
+          <div className="flex-shrink-0 w-8 md:w-16" />
         </div>
       </div>
     </section>

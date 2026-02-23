@@ -20,8 +20,24 @@ export default function Skills() {
   const sectionRef = useRef(null);
   const scrollRef = useRef(null);
   const [isActive, setIsActive] = useState(false);
+  const dragInfo = useRef({ isDragging: false, startX: 0, scrollLeft: 0 });
 
   const speed = 0.6;
+
+  // New: Intersection Observer to start/stop based on visibility
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setIsActive(true);
+          else setIsActive(false);
+        });
+      },
+      { threshold: 0.1 }
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   // 🔁 Auto-scroll with a smooth infinite loop
   useEffect(() => {
@@ -29,7 +45,6 @@ export default function Skills() {
     if (!el) return;
 
     // 1) Clone the children only once so we can create the loop
-
     if (el.dataset.cloned !== "true") {
       const children = Array.from(el.children);
       children.forEach((child) => el.appendChild(child.cloneNode(true)));
@@ -37,9 +52,9 @@ export default function Skills() {
     }
 
     let rafId;
-
     const tick = () => {
-      if (isActive) {
+      // Only auto-scroll if active AND not being dragged
+      if (isActive && !dragInfo.current.isDragging) {
         el.scrollLeft += speed;
 
         // 2) The real half of the content (original + clone)
@@ -50,7 +65,6 @@ export default function Skills() {
           el.scrollLeft -= half;
         }
       }
-
       rafId = requestAnimationFrame(tick);
     };
 
@@ -74,6 +88,38 @@ export default function Skills() {
       sec.removeEventListener("mouseleave", leave);
     };
   }, []);
+
+  // --- Manual Drag Logic (Mouse & Touch) ---
+  const onPointerDown = (e) => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    dragInfo.current = {
+      isDragging: true,
+      startX: e.pageX - el.offsetLeft,
+      scrollLeft: el.scrollLeft,
+    };
+    el.setPointerCapture(e.pointerId);
+  };
+
+  const onPointerMove = (e) => {
+    if (!dragInfo.current.isDragging) return;
+    
+    const el = scrollRef.current;
+    const x = e.pageX - el.offsetLeft;
+    const walk = (x - dragInfo.current.startX) * 1.5;
+    el.scrollLeft = dragInfo.current.scrollLeft - walk;
+
+    // Handle loop during manual drag
+    const half = el.scrollWidth / 2;
+    if (el.scrollLeft >= half) el.scrollLeft -= half;
+    if (el.scrollLeft <= 0) el.scrollLeft += half;
+  };
+
+  const stopDragging = (e) => {
+    dragInfo.current.isDragging = false;
+    if (scrollRef.current) scrollRef.current.releasePointerCapture(e.pointerId);
+  };
 
   // Block arrows if they ever recive focus
   const handleKeyDown = (e) => {
@@ -105,7 +151,12 @@ export default function Skills() {
         tabIndex={-1}
         onKeyDown={handleKeyDown}
         onWheel={handleWheel}
-        className="flex flex-nowrap gap-16 md:gap-20 px-8 md:px-12 py-2 overflow-hidden select-none cursor-default"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={stopDragging}
+        onPointerLeave={stopDragging}
+        onPointerCancel={stopDragging}
+        className="flex flex-nowrap gap-16 md:gap-20 px-8 md:px-12 py-2 overflow-hidden select-none cursor-grab active:cursor-grabbing touch-pan-y"
       >
         {techs.map((t, i) => (
           <div
@@ -116,10 +167,9 @@ export default function Skills() {
               <img
                 src={getImageSkills(t.file)}
                 alt={t.name}
-                className="w-10 h-10 md:w-12 md:h-12 object-contain"
+                className="w-10 h-10 md:w-12 md:h-12 object-contain pointer-events-none"
                 loading="lazy"
                 draggable={false}
-                onDragStart={(e) => e.preventDefault()}
               />
             </div>
           </div>
