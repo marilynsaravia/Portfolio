@@ -88,12 +88,12 @@ export default function Projects() {
               key={`${p.title}-${i}`}
               className="inline-block w-[320px] sm:w-[500px] flex-shrink-0"
             >
-              <div className="relative w-full h-[293px] bg-[#111111] flex items-center justify-center overflow-hidden rounded-xl">
+              <div className="relative w-full h-[293px] bg-[#F9F9F9] flex items-center justify-center overflow-hidden rounded-xl">
                 <img
                   src={getImageProjects(p.imageSrc)}
                   alt={p.title}
                   draggable={false} // Prevent browser default drag on images
-                  className="object-contain pointer-events-none"
+                  className="w-full h-full object-cover pointer-events-none"
                 />
               </div>
 
