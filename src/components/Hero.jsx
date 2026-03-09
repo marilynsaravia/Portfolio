@@ -48,7 +48,7 @@ export default function Hero() {
         </div>
 
        {/* Main title */}
-        <h1 className="text-[28px] sm:text-4xl md:text-5xl font-semibold leading-tight tracking-tight mb-2">
+        <h1 className="text-[26px] sm:text-4xl md:text-5xl font-semibold leading-tight tracking-tight mb-2">
           Hi, my name is{" "}
           <span className="bg-gradient-to-r from-teal-400 via-purple-400 to-blue-500 bg-clip-text text-transparent">
             Marilyn
@@ -57,7 +57,7 @@ export default function Hero() {
         </h1>
 
         {/* Subtitle: "I'm a Frontend Developer" */}
-        <h2 className="text-gray-600 text-[28px] sm:text-4xl md:text-5xl  flex items-center justify-center gap-2 mb-4">
+        <h2 className="text-gray-600 text-[26px]  sm:text-4xl md:text-5xl  flex items-center justify-center gap-2 mb-4">
           I'm a
           <span className="font-semibold text-gray-900 flex items-center">
             <span className="hero-typing inline-block leading-none">

@@ -1,4 +1,12 @@
 [
+  
+  {
+    "title": "Glassmorphism Generator",
+    "imageSrc": "project0.png",
+    "skills": ["HTML5","CSS","Javascript"],
+    "demo": "https://marilynsaravia.github.io/Glassmorphism-Generator/",
+    "source": "https://github.com/marilynsaravia/Glassmorphism-Generator"
+  },
   {
     "title": "Weather App",
     "imageSrc": "project1.png",
@@ -23,7 +31,7 @@
   {
     "title" : "Evolution",
     "imageSrc": "project4.png",
-    "skills" : ["HTML5","TailwindCSS","Javascript","React"],
+    "skills" : ["HTML5","TailwindCSS","Javascript","PHP","Sql"],
     "demo": "https://marilynsaravia.github.io/Notepad-App/",
     "source": "https://github.com/marilynsaravia/Notepad-App"
   }
