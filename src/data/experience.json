@@ -1,52 +1,131 @@
 [
   {
-    "role": "Junior Frontend developer",
+    "role": {
+      "EN": "Junior Frontend developer",
+      "ES": "Desarrolladora Frontend Junior"
+    },
     "organisation": "AdoptaUnJunior",
-    "country": "Spain",
-    "employmentType": "Contract",
-    "startDate": "Oct, 2024",
-    "endDate": "Dic, 2024",
-    "experiences":[
-                    "Designed and implemented responsive web interfaces using Next.js, focusing on efficiency and adaptability across different devices.",
-                    "Applied TypeScript to ensure robust, strongly typed development, improving code quality and maintainability.",
-                    "Integrated Tailwind CSS to create aesthetic and functional interfaces, optimizing development time through its utility-based design system.",
-                    "Collaborated across departments, particularly with design teams, to ensure a cohesive and high-quality user experience.",
-                    "Actively contributed to the continuous improvement of the user experience, applying best practices in performance and web usability."
-                  ],
+    "country": {
+      "EN": "Spain",
+      "ES": "España"
+    },
+    "employmentType": {
+      "EN": "Collaboration",
+      "ES": "Colaboración"
+    },
+    "startDate": {
+      "EN": "Oct, 2024",
+      "ES": "Oct 2024"
+    },
+    "endDate": {
+      "EN": "Dec, 2024",
+      "ES": "Dic 2024"
+    },
+    "experiences": [
+      {
+        "EN": "Designed and implemented responsive web interfaces using Next.js, focusing on efficiency and adaptability across different devices.",
+        "ES": "Diseñé e implementé interfaces web responsivas utilizando Next.js, enfocándome en la eficiencia y adaptabilidad en distintos dispositivos."
+      },
+      {
+        "EN": "Applied TypeScript to ensure robust, strongly typed development, improving code quality and maintainability.",
+        "ES": "Apliqué TypeScript para garantizar un desarrollo robusto y fuertemente tipado, mejorando la calidad y mantenibilidad del código."
+      },
+      {
+        "EN": "Integrated Tailwind CSS to create aesthetic and functional interfaces, optimizing development time through its utility-based design system.",
+        "ES": "Integré Tailwind CSS para crear interfaces estéticas y funcionales, optimizando el tiempo de desarrollo mediante su sistema de diseño basado en utilidades."
+      },
+      {
+        "EN": "Collaborated across departments, particularly with design teams, to ensure a cohesive and high-quality user experience.",
+        "ES": "Colaboré entre áreas, especialmente con equipos de diseño, para asegurar una experiencia de usuario cohesiva y de alta calidad."
+      },
+      {
+        "EN": "Actively contributed to the continuous improvement of the user experience, applying best practices in performance and web usability.",
+        "ES": "Contribuí activamente a la mejora continua de la experiencia de usuario, aplicando buenas prácticas de rendimiento y usabilidad web."
+      }
+    ],
     "imageSrc": "spain.png",
-    "link": "https://cloudsolute.net/"
+    "skills": ["Next.js", "TypeScript", "Tailwind CSS"]
   },
   {
-    "role": "Web developer",
+    "role": {
+      "EN": "Web developer",
+      "ES": "Desarrolladora Web"
+    },
     "organisation": "Sucre Obras y Reformas",
-    "country": "Spain",
-    "employmentType": "Freelance",
-    "startDate": "Jul, 2014",
-    "endDate": "Jul, 2024",
-    "experiences":[
-                    "Gained experience in web development, strengthening technical skills and the ability to manage projects independently.", 
-                    "Designed and developed complete websites using PHP, HTML, CSS, and JavaScript, ensuring both functionality and visual appeal.",
-                    "Responsible for the full planning, design, and execution of web projects, from initial concept to successful launch.",
-                    "Implemented optimization strategies to improve performance and ensured compatibility across a wide range of devices."
-                  ],
+    "country": {
+      "EN": "Spain",
+      "ES": "España"
+    },
+    "employmentType": {
+      "EN": "Freelance",
+      "ES": "Freelance"
+    },
+    "startDate": {
+      "EN": "Jul, 2024",
+      "ES": "Jul 2024"
+    },
+    "endDate": {
+      "EN": "Jul, 2024",
+      "ES": "Jul 2024"
+    },
+    "experiences": [
+      {
+        "EN": "Gained experience in web development, strengthening technical skills and the ability to manage projects independently.",
+        "ES": "Adquirí experiencia en desarrollo web, fortaleciendo habilidades técnicas y la capacidad de gestionar proyectos de forma independiente."
+      },
+      {
+        "EN": "Designed and developed complete websites using PHP, HTML, CSS, and JavaScript, ensuring both functionality and visual appeal.",
+        "ES": "Diseñé y desarrollé sitios web completos utilizando PHP, HTML, CSS y JavaScript, asegurando tanto funcionalidad como atractivo visual."
+      },
+      {
+        "EN": "Responsible for the full planning, design, and execution of web projects, from initial concept to successful launch.",
+        "ES": "Fui responsable de la planificación, diseño y ejecución integral de proyectos web, desde el concepto inicial hasta su lanzamiento."
+      },
+      {
+        "EN": "Implemented optimization strategies to improve performance and ensured compatibility across a wide range of devices.",
+        "ES": "Implementé estrategias de optimización para mejorar el rendimiento y aseguré la compatibilidad en una amplia variedad de dispositivos."
+      }
+    ],
     "imageSrc": "spain.png",
-    "link": "https://www.sucreobrasyreformas.com/"  
-
+    "skills": ["PHP", "JavaScript", "HTML5", "Tailwind CSS"]
   },
   {
-    "role": "Backend Developer Intern",
+    "role": {
+      "EN": "Backend Developer Intern",
+      "ES": "Desarrolladora Backend en Prácticas"
+    },
     "organisation": "Adentia (Advanced Enterprise Internet Act)",
-    "country": "Spain",
-    "employmentType": "Internship",
-    "startDate": "Abr, 2024",
-    "endDate": "Jun, 2024",
-    "experiences":[
-                    "Execution of advanced SQL queries and data manipulation exercises using a dedicated test database.", 
-                    "Acquired skills in C#, jQuery, and Angular through training materials provided by the company, expanding knowledge of backend development technologies.",
-                    "Developed and strengthened backend programming logic skills and gained familiarity with modern web development tools, building a solid foundation to face technical challenges in professional environments."
-                  ],
+    "country": {
+      "EN": "Spain",
+      "ES": "España"
+    },
+    "employmentType": {
+      "EN": "Internship",
+      "ES": "Prácticas"
+    },
+    "startDate": {
+      "EN": "Apr, 2024",
+      "ES": "Abr 2024"
+    },
+    "endDate": {
+      "EN": "Jun, 2024",
+      "ES": "Jun 2024"
+    },
+    "experiences": [
+      {
+        "EN": "Execution of advanced SQL queries and data manipulation exercises using a dedicated test database.",
+        "ES": "Ejecución de consultas SQL avanzadas y ejercicios de manipulación de datos sobre una base de datos de pruebas."
+      },
+      {
+        "EN": "Acquired skills in C#, jQuery, and Angular through training materials provided by the company, expanding knowledge of backend development technologies.",
+        "ES": "Adquirí conocimientos en C#, jQuery y Angular mediante materiales formativos de la empresa, ampliando mi base en tecnologías de desarrollo."
+      },
+      {
+        "EN": "Developed and strengthened backend programming logic skills and gained familiarity with modern web development tools, building a solid foundation to face technical challenges in professional environments.",
+        "ES": "Desarrollé y fortalecí la lógica de programación backend y me familiaricé con herramientas web modernas, construyendo una base sólida para entornos profesionales."
+      }
+    ],
     "imageSrc": "spain.png",
-    "link": "https://adentia.es/"  
-
+    "skills": ["SQL", "C#", "jQuery", "Angular"]
   }
 ]

@@ -1,38 +1,35 @@
 [
-  
   {
-    "title": "Glassmorphism Generator",
-    "imageSrc": "project0.png",
-    "skills": ["HTML5","CSS","Javascript"],
-    "demo": "https://marilynsaravia.github.io/Glassmorphism-Generator/",
-    "source": "https://github.com/marilynsaravia/Glassmorphism-Generator"
-  },
-  {
-    "title": "Weather App",
-    "imageSrc": "project1.png",
-    "skills": ["HTML5","Tailwind CSS","Javascript", "React", "API"],
-    "demo": "https://weather-app-dvem.onrender.com/",
-    "source": "https://github.com/marilynsaravia/Weather-App"
-  },
-  {
-    "title" : "Bolivian Recipes App",
-    "imageSrc": "project2.png",
+    "title" : "slot-01",
+    "imageSrc": "project.png",
+    "description": {
+      "ES": "Maqueta reservada mientras rehago este proyecto.",
+      "EN": "Wireframe slot while this project is being rebuilt."
+    },
     "skills" : ["HTML5","TailwindCSS","Javascript","React"],
-    "demo": "https://marilynsaravia.github.io/Bolivian-Recipes-App/",
-    "source": "https://github.com/marilynsaravia/Bolivian-Recipes-App"
-  },
+    "demo": "https://marilynsaravia.github.io",
+    "source": "https://github.com/marilynsaravia"
+  }, 
   {
-    "title" : "Notepad App",
-    "imageSrc": "project3.png",
+    "title" : "slot-02",
+    "imageSrc": "project.png",
+    "description": {
+      "ES": "Maqueta reservada mientras rehago este proyecto.",
+      "EN": "Wireframe slot while this project is being rebuilt."
+    },
     "skills" : ["HTML5","TailwindCSS","Javascript","React"],
-    "demo": "https://marilynsaravia.github.io/Notepad-App/",
-    "source": "https://github.com/marilynsaravia/Notepad-App"
-  },
+    "demo": "https://marilynsaravia.github.io",
+    "source": "https://github.com/marilynsaravia"
+  }, 
   {
-    "title" : "Evolution",
-    "imageSrc": "project4.png",
-    "skills" : ["HTML5","TailwindCSS","Javascript","PHP","Sql"],
-    "demo": "https://marilynsaravia.github.io/Notepad-App/",
-    "source": "https://github.com/marilynsaravia/Notepad-App"
+    "title" : "slot-03",
+    "imageSrc": "project.png",
+    "description": {
+      "ES": "Maqueta reservada mientras rehago este proyecto.",
+      "EN": "Wireframe slot while this project is being rebuilt."
+    },
+    "skills" : ["HTML5","TailwindCSS","Javascript","React"],
+    "demo": "https://marilynsaravia.github.io",
+    "source": "https://github.com/marilynsaravia"
   }
 ]
